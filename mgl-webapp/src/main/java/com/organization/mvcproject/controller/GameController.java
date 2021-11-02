@@ -28,10 +28,6 @@ public class GameController {
 	@Autowired
 	private GameService gameService;
 
-	/**
-	 * TODO 2.0 (Separation of concerns) consider moving all controller endpoints that return a ResponseEntity into a @RestController.
-	 */
-	
 	@GetMapping(value = "/getAll")
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(gameService.retrieveAllGames(), HttpStatus.OK);
