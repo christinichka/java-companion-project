@@ -6,19 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.organization.mvcproject.model.Game;
-import com.organization.mvcproject.model.Review;
 import com.organization.mvcproject.service.GameService;
 
 @RequestMapping(value ="/game")
@@ -32,16 +26,24 @@ public class GameController {
 	public ResponseEntity<List<Game>> fetchAllGames() {
 		return new ResponseEntity<List<Game>>(gameService.retrieveAllGames(), HttpStatus.OK);
 	}
-
-	@PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	// creates and adds to list of games I had "/" previously for create and update
+	@PostMapping(value = "/createGame", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> createGame(@RequestBody Game game) {
 		gameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
-	
-	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	// updates a game 
+	@PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> updateGame(@RequestBody Game game) {
 		gameService.saveGame(game);
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
+
+	//add delete mapping
+	@PutMapping(value = "/delete", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> deleteGame(@RequestBody Game game) {
+		gameService.saveGame(game);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
+	}
+	
 }

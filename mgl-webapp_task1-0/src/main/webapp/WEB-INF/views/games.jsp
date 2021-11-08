@@ -40,12 +40,12 @@
                 <div class="panel-heading text-light"><span class="lead">Game Registration Form </span></div>
                 <div class="formcontainer">
                     <form ng-submit="ctrl.addGame()" name="gameForm" class="form-horizontal">
-                        <input type="hidden" ng-model="ctrl.game.game_id" />
+                        <input type="hidden" ng-model="ctrl.game.id" />
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label class="col-md-2 control-lable text-light" for="game_name">Name*</label>
+                                <label class="col-md-2 control-lable text-light" for="name">Name*</label>
                                 <div class="col-md-7">
-                                    <input type="text" ng-model="ctrl.game.name" id="game_name" class="game_name form-control input-sm" placeholder="Enter the name of the new game [required]" required ng-minlength="3" />
+                                    <input type="text" ng-model="ctrl.game.name" id="name" class="name form-control input-sm" placeholder="Enter the name of the new game [required]" required ng-minlength="3" />
                                     <div class="has-error" ng-show="gameForm.$dirty">
                                         <span ng-show="gameForm.name.$error.required">This is a required field</span>
                                         <span ng-show="gameForm.name.$error.minlength">Minimum length required is 3</span>
@@ -58,9 +58,9 @@
 
                         <div class="row">
                             <div class="form-group col-md-12">
-                                <label class="col-md-2 control-lable text-light" for="game_genre">Game Genre</label>
+                                <label class="col-md-2 control-lable text-light" for="genre">Game Genre</label>
                                 <div class="col-md-7">
-                                    <input type="text" ng-model="ctrl.game.genre" id="game_genre" class="form-control input-sm" placeholder="Enter the genre of the new game" />
+                                    <input type="text" ng-model="ctrl.game.genre" id="genre" class="form-control input-sm" placeholder="Enter the genre of the new game" />
                                 </div>
                             </div>
                         </div>

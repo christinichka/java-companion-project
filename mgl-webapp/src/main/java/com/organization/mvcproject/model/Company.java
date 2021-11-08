@@ -1,10 +1,7 @@
 
 package com.organization.mvcproject.model;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.stereotype.Component;
 
 public class Company {
 
