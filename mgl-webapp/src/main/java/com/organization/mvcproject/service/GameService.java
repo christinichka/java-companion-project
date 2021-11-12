@@ -10,4 +10,10 @@ public interface GameService {
 
 	Game saveGame(Game game);
 
+	boolean deleteGame(Long id);
+
+	Game findGameById(Long id);
+	
+	List<Game> findGameByGenre(Game game);
+
 }

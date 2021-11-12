@@ -30,7 +30,18 @@ public class GameServiceImpl implements GameService {
 		return mockGameDAO.saveGame(game);
 	}
 	
-	public Boolean deleteGame(Long id) {
+	public boolean deleteGame(Long id) {
 		return mockGameDAO.deleteGame(id);
+	}
+
+	@Override
+	public Game findGameById(Long id) {
+		return mockGameDAO.findGameById(id);
+	}
+
+	@Override
+	public List<Game> findGameByGenre(Game game) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

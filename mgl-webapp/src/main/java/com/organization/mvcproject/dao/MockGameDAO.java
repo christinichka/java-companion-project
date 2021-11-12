@@ -17,6 +17,7 @@ import com.organization.mvcproject.model.Game;
 
 @Repository
 public class MockGameDAO {
+	@SuppressWarnings("deprecation")
 	private static Long gameId = new Long(0);
 //	private static Long companyId = new Long(0);
 	private static List<Game> games = new ArrayList<>();
@@ -45,7 +46,7 @@ public class MockGameDAO {
 		games.add(game1);
 		games.add(game2);
 		games.add(game3);
-//		games.delete(game3);
+//		games.remove(game3);
 
 		return games;
 	}
@@ -53,6 +54,8 @@ public class MockGameDAO {
 	public List<Game> getAllGames() {
 		return games;
 	}
+	
+	
 
 	public Game saveGame(Game game) {
 		if (game.getId() != null) {
@@ -61,7 +64,6 @@ public class MockGameDAO {
 				// Update the game list
 				for (int i = 0; i < games.size(); i++) {
 					if (game.getId().equals(games.get(i).getId())) {
-//					games.set(i, foundGame); // should it be game or foundGame??
 						return games.set(i, game);					}
 				}
 			}
@@ -83,10 +85,10 @@ public class MockGameDAO {
 		return null;
 	}
 	
-	// delete game
+//	// delete game
 	public boolean deleteGame(Long id) {
 		for(int i = 0; i < games.size(); i++) {
-			if (id.equals(games.get(i).getId())) {
+			if (id == (games.get(i).getId())) {
 				games.remove(games.get(i));
 				return true;
 			}
