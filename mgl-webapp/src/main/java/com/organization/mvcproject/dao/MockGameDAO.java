@@ -46,7 +46,6 @@ public class MockGameDAO {
 		games.add(game1);
 		games.add(game2);
 		games.add(game3);
-//		games.remove(game3);
 
 		return games;
 	}
@@ -94,6 +93,18 @@ public class MockGameDAO {
 			}
 		}
 		return false;
+	}
+	
+	// update game
+	public Game updateGame(Game game) {
+		
+		// updates game
+		for (int i = 0; i < games.size(); i++) {
+			if (game.getId().equals(games.get(i).getId())) {
+				return games.set(i, game);					}
+		}
+		return game;
+		
 	}
 
 }

@@ -7,7 +7,7 @@ angular.module('GameApp').controller('GameController',
 				id : '',
 				name : '',
 				genre : '',
-				//deleteGame : deleteGame
+
 			};
 			self.games = [];
 
@@ -26,14 +26,17 @@ angular.module('GameApp').controller('GameController',
 			// Adding in delete game functionality
 			self.deleteGame = function(game) {
 				return GameService.deleteGame(game.id).then(function() {
-				/*if (data === false) {
-					$log.debug("Game with id: " + game.id + " was deleted.");				
-				}*/
 				self.fetchAllGames();
 				});
 			}
 			
 			// Select a game to update
+			self.updateGame = function(game) {
+				self.game = game;
+				return GameService.updateGame(game.id).then(function() {
+				self.fetchAllGames();
+				});
+			}
 
 
 			self.fetchAllGames();

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.organization.mvcproject.model.Game;
 import com.organization.mvcproject.service.GameService;
-import com.organization.mvcproject.service.GameServiceImpl;
 
 @RequestMapping(value ="/game")
 @RestController

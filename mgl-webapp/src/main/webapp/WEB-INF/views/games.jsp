@@ -91,7 +91,7 @@
                                 <td><span ng-bind="currentGame.genre"></span></td>
                                 <td></td>
                                 <!-- Add button to update -->
-                                <td><button data-ng-click="ctrl.deleteGame(currentGame)" class="btn btn-primary btn-sm">Select</button></td>
+                                <td><button data-ng-click="ctrl.updateGame(currentGame)" class="btn btn-primary btn-sm">Select</button></td>
                                 <!-- Add button to delete -->
                                 <td><button data-ng-click="ctrl.deleteGame(currentGame)" class="btn btn-danger btn-sm">Delete</button></td>                            
 
