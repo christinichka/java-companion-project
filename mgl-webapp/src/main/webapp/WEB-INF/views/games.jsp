@@ -67,7 +67,9 @@
 
                         <div class="row">
                             <div class="form-actions floatRight">
-                                <input type="submit" value="Add" class="btn btn-primary btn-sm">
+                                <input data-ng-if="!ctrl.game.id" type="submit" value="Add" class="btn btn-primary btn-sm">
+                                <!-- Button to update game -->
+                                <button data-ng-if="ctrl.game.id" data-ng-click="ctrl.updateGame(currentGame)" class="btn btn-primary btn-sm">Update</button>
                             </div>
                         </div>
                     </form>
@@ -90,9 +92,9 @@
                                 <td><span ng-bind="currentGame.name"></span></td>
                                 <td><span ng-bind="currentGame.genre"></span></td>
                                 <td></td>
-                                <!-- Add button to update -->
-                                <td><button data-ng-click="ctrl.updateGame(currentGame)" class="btn btn-primary btn-sm">Select</button></td>
-                                <!-- Add button to delete -->
+                                <!-- Button to select a game to update -->
+                                <td><button data-ng-click="ctrl.selectGame(currentGame)" class="btn btn-primary btn-sm">Select</button></td>
+                                <!-- Button to delete a game-->
                                 <td><button data-ng-click="ctrl.deleteGame(currentGame)" class="btn btn-danger btn-sm">Delete</button></td>                            
 
                             </tr>

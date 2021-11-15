@@ -95,16 +95,5 @@ public class MockGameDAO {
 		return false;
 	}
 	
-	// update game
-	public Game updateGame(Game game) {
-		
-		// updates game
-		for (int i = 0; i < games.size(); i++) {
-			if (game.getId().equals(games.get(i).getId())) {
-				return games.set(i, game);					}
-		}
-		return game;
-		
-	}
 
 }

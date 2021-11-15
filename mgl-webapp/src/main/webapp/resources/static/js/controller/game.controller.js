@@ -20,10 +20,11 @@ angular.module('GameApp').controller('GameController',
 			self.addGame = function(){
 				return GameService.createGame(self.game).then( function() {
 				self.fetchAllGames();
+				}).finally( function() {
+					self.game = {};
 				});
 			}
 			
-			// Adding in delete game functionality
 			self.deleteGame = function(game) {
 				return GameService.deleteGame(game.id).then(function() {
 				self.fetchAllGames();
@@ -31,11 +32,23 @@ angular.module('GameApp').controller('GameController',
 			}
 			
 			// Select a game to update
-			self.updateGame = function(game) {
+			self.selectGame = function(game) {
 				self.game = game;
-				return GameService.updateGame(game.id).then(function() {
 				self.fetchAllGames();
+			}
+			
+			// Update a game
+			self.updateGame = function() {
+				return GameService.updateGame(self.game).then( function() {
+				self.fetchAllGames();
+				}).finally( function() {
+					self.game = {};
 				});
+			}
+			
+			self.selectGame = function(game) {
+				self.game = angular.copy(game);
+				self.fetchAllGames();
 			}
 
 

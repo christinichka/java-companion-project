@@ -28,7 +28,7 @@ angular.module('GameApp').factory('GameService', ['$http', function($http) {
 		}
 		
 		function updateGame(game) {
-			return $http.put(REST_SERVICE_URI + 'updateGame', game).then(function(response) {
+			return $http.put(REST_SERVICE_URI + 'update', game).then(function(response) {
 					return response.data;
 				}
 			);
